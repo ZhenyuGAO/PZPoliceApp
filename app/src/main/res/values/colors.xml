@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1296db</color>
+    <color name="colorPrimaryDark">#0086cc</color>
+    <color name="colorAccent">#d4237a</color>
+    <color name="transparent">#00000000</color>
+    <color name="screen_background">#EEEEEE</color>
+    <color name="content_background">#FFFFFF</color>
+
+    <!--按钮相关颜色-->
+    <color name="button_pressed">#c2bebe</color>
+    <color name="button_enabled">#d1cdcd</color>
+    <color name="button_focused">#d1cdcd</color>
+    <color name="button_selected">#d1cdcd</color>
+    <color name="button_theme">#1296db</color>
+
+
+    <!--文字相关颜色-->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_black">#000000</color>
+    <color name="text_title">#1296db</color>
+
+    <!--分割线-->
+    <color name="item_line">#999999</color>
+
+</resources>

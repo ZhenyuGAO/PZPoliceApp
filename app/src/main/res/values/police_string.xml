@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="attendance">考勤</string>
+    <string name="attendance_report">考勤申报</string>
+    <string name="vacate">请销假</string>
+    <string name="time_to_declare">时间申报</string>
+    <string name="attendance_records">考勤记录</string>
+    <string name="declare_audit">申报审核</string>
+    <string name="leave">请假</string>
+    <string name="sick_leave">销假</string>
+    <string name="vacate_state">请销假</string>
+    <string name="audit">审核</string>
+
+    <string name="task">我的任务</string>
+    <string name="daily_work">日常工作</string>
+    <string name="plus_task">加分项任务</string>
+    <string name="assigned_work">交办任务</string>
+    <string name="task_status">任务状态</string>
+
+    <string name="personal_enter">个人中心</string>
+    <string name="bulletin_board">公告栏</string>
+    <string name="honor">荣誉</string>
+    <string name="ranking_list">排行榜</string>
+    <string name="personal_equipment">个人装备</string>
+
+
+    <string name="case_id">案件编号：</string>
+    <string name="case_link">案件环节：</string>
+    <string name="case_address">案件地点：</string>
+    <string name="case_time">案件时间：</string>
+</resources>

@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.pvirtech.pzpolice"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    testCompile 'junit:junit:4.12'
+    /*UI*/
+    compile 'com.android.support:design:25.1.1'
+    /**/
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.ashokvarma.android:bottom-navigation-bar:1.3.0'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.6'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    /*检测内存泄漏*/
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    /*butterknife*/
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    /*dagger*/
+    compile 'com.google.dagger:dagger:2.9'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
+    /*UI*/
+    compile 'com.android.support:cardview-v7:25.1.1'
+    /*带状态的按钮circular-progress-button*/
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    /*BaseRecyclerViewAdapterHelper*/
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.4.4'
+    /*dialog*/
+    compile 'cn.pedant.sweetalert:library:1.3'
+    /*switchbutton*/
+    compile 'com.kyleduo.switchbutton:library:1.4.4'
+    /*FloatingActionButton*/
+    compile 'com.github.clans:fab:1.6.4'
+    /*等待动画*/
+    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
+    /*realm*/
+    compile 'io.realm:realm-android:0.87.5'
+    compile files('libs/BaiduLBS_Android.jar')
+    /*Toasty  漂亮的toast*/
+    compile 'com.github.GrenderG:Toasty:1.1.3'
+
+}
