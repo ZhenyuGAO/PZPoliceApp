@@ -20,14 +20,14 @@ import butterknife.BindView;
 /**
  * 工作主页
  */
-public class FirstFragment extends BaseFragment {
+public class WorkFragment extends BaseFragment {
     @BindView(R.id.task)
     RecyclerView task;
     private Context mContext = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_work, container, false);
         mContext = getActivity();
         initView(view);
         TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, new TaskMenuAdapter.OnRecyclerViewListener() {

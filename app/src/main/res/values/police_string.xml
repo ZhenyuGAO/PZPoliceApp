@@ -11,7 +11,7 @@
     <string name="vacate_state">请销假</string>
     <string name="audit">审核</string>
 
-    <string name="task">我的任务</string>
+    <string name="my_task">我的任务</string>
     <string name="daily_work">日常工作</string>
     <string name="plus_task">加分项任务</string>
     <string name="assigned_work">交办任务</string>
@@ -28,4 +28,10 @@
     <string name="case_link">案件环节：</string>
     <string name="case_address">案件地点：</string>
     <string name="case_time">案件时间：</string>
+    <string name="task">任务</string>
+    <string name="work">工作</string>
+    <string name="person">人员薄</string>
+    <string name="scoreboard">积分榜</string>
+
+
 </resources>

@@ -31,13 +31,15 @@ import butterknife.ButterKnife;
 
 public class HomeMainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, NavigationView.OnNavigationItemSelectedListener {
     private ArrayList<Fragment> fragments;
-    FirstFragment firstFragment = new FirstFragment();
-    SecondFragment secondFragment = new SecondFragment();
+    TaskFragment taskFragment = new TaskFragment();
+    WorkFragment workFragment = new WorkFragment();
+    PersonFragment personFragment = new PersonFragment();
+    ScoreboardFragment scoreboardFragment = new ScoreboardFragment();
     /**
      * 设置显示主页
      */
     SettingFragment mSettingFragment = new SettingFragment();
-    String[] titles = {"我的工作", "个人中心"};
+    String[] titles = {"我的任务", "我的工作","人员簿", "积分榜"};
     Toolbar toolbar;
     private Context mContext = null;
 
@@ -75,11 +77,11 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
                 .setBackgroundColor(Color.RED)
                 .setText("5")
                 .setHideOnSelect(true);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "工作").setActiveColorResource(R.color.button_theme)
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.task)).setActiveColorResource(R.color.button_theme)
                 .setBadgeItem(numberBadgeItem))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "我的").setActiveColorResource(R.color.button_theme))
-//                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, "设置").setActiveColorResource(R.color.blue))
-//                .addItem(new BottomNavigationItem(R.mipmap.ic_tv_white_24dp, "Movies & TV").setActiveColorResource(R.color.brown))
+                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.work)).setActiveColorResource(R.color.button_theme))
+                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.person)).setActiveColorResource(R.color.blue))
+                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.scoreboard)).setActiveColorResource(R.color.brown))
 //                .addItem(new BottomNavigationItem(R.mipmap.ic_videogame_asset_white_24dp, "Games").setActiveColorResource(R.color.grey)
 // .setBadgeItem(numberBadgeItem))
                 .setFirstSelectedPosition(0)
@@ -96,16 +98,17 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
     private void setDefaultFragment() {
         FragmentManager fm = HomeMainActivity.this.getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.layFrame, firstFragment);
+        transaction.replace(R.id.layFrame, taskFragment);
         transaction.commit();
     }
 
 
     private ArrayList<Fragment> getFragments() {
         ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(firstFragment);
-        fragments.add(secondFragment);
-//        fragments.add(mSettingFragment);
+        fragments.add(taskFragment);
+        fragments.add(workFragment);
+        fragments.add(personFragment);
+        fragments.add(scoreboardFragment);
         return fragments;
     }
 

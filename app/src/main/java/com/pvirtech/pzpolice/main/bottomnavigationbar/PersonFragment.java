@@ -10,14 +10,14 @@ import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 
 /**
- * 个人中心主页
+ * 人员薄主页
  */
-public class SecondFragment extends BaseFragment {
+public class PersonFragment extends BaseFragment {
     private Context mContext = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_second, container, false);
+        View view = inflater.inflate(R.layout.fragment_task, container, false);
         mContext = getActivity();
         initView(view);
         return view;
