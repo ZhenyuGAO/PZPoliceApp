@@ -80,5 +80,6 @@ dependencies {
     compile files('libs/BaiduLBS_Android.jar')
     /*Toasty  漂亮的toast*/
     compile 'com.github.GrenderG:Toasty:1.1.3'
-
+    /*树级列表*/
+    compile 'com.github.bmelnychuk:atv:1.2.+'
 }
