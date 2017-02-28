@@ -27,24 +27,10 @@ public class WelcomeActivity extends Activity {
     }
 
     private void toHome() {
-        Thread mThread = new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Intent intent = new Intent();
-                intent.setClass(WelcomeActivity.this, AppLoginActivity.class);
-                startActivity(intent);
-                finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            }
-        };
-        mThread.start();
-
+        Intent intent = new Intent();
+        intent.setClass(WelcomeActivity.this, AppLoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void initDirPath() {
@@ -81,7 +67,7 @@ public class WelcomeActivity extends Activity {
             return dirPath;
         } else {
             if (!TextUtils.isEmpty(notice)) {
-                Toasty.error(mContext,"目录获取失败，" + notice + "不能保存").show();
+                Toasty.error(mContext, "目录获取失败，" + notice + "不能保存").show();
             }
             return null;
         }
