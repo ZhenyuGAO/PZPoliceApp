@@ -1,32 +1,28 @@
 package com.pvirtech.pzpolice.main;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
-import android.widget.ImageView;
 
 import com.pvirtech.pzpolice.R;
 
 import java.io.File;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class WelcomeActivity extends Activity {
-    @BindView(R.id.iv_welcome_bg)
-    ImageView ivWelcomeBg;
 
+    private Context mContext;
+    private String TAG = "WelcomeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        ButterKnife.bind(this);
+        mContext = WelcomeActivity.this;
         initDirPath();
-//        ivWelcomeBg.setImageResource(R.mipmap.welcome_bg);
-//        ivWelcomeBg.animate().scaleX(1.12f).scaleY(1.12f).setDuration(2000).setStartDelay(100).start();
         toHome();
     }
 
@@ -68,7 +64,7 @@ public class WelcomeActivity extends Activity {
                 String updatePath = getDirPath(epath, "/update", "更新");
                 AppValue.getInstance().setUpdatePath(updatePath);
             } else {
-                Snackbar.make(ivWelcomeBg, "SD卡未加载，不能保存",  Snackbar.LENGTH_SHORT).show();
+                Toasty.error(mContext, "SD卡未加载，不能保存").show();
             }
         } catch (Exception e) {
         }
@@ -85,7 +81,7 @@ public class WelcomeActivity extends Activity {
             return dirPath;
         } else {
             if (!TextUtils.isEmpty(notice)) {
-                Snackbar.make(ivWelcomeBg, "目录获取失败，" + notice + "不能保存",  Snackbar.LENGTH_SHORT).show();
+                Toasty.error(mContext,"目录获取失败，" + notice + "不能保存").show();
             }
             return null;
         }

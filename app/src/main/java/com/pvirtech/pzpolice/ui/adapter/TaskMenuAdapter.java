@@ -76,11 +76,8 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
 
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        //        @BindView(R.id.icon)
         ImageView icon;
-        //        @BindView(R.id.name)
         TextView name;
-        //        @BindView(R.id.root_view)
         LinearLayout rootView;
         int position;
 

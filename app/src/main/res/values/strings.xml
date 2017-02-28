@@ -49,8 +49,6 @@
     <string name="setting_recycleview_head">列表顶部动画</string>
 
 
-
-
     <string name="setting">设置</string>
     <string name="transition_album_cover_toolbar">transition_album_cover_toolbar</string>
     <string name="transition_album_cover_view">transition_album_cover_view</string>

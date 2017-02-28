@@ -32,6 +32,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- 悬浮框权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name=".main.MyApplication"
         android:allowBackup="true"
@@ -103,7 +104,6 @@
             android:name=".ui.activity.WorkOneActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".third.baidu.LocationActivity"
             android:launchMode="singleTask"
@@ -119,7 +119,7 @@
         <activity
             android:name=".ui.activity.SettingActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MonthlyCalendarActivity"
             android:launchMode="singleTask"
@@ -131,11 +131,13 @@
         <activity
             android:name=".test.view.CollapsingToolbarLayoutActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".file.down.DownloadService"
             android:priority="1000" />
+
+        <activity android:name=".ui.activity.LeaveActivity"></activity>
     </application>
 
 </manifest>

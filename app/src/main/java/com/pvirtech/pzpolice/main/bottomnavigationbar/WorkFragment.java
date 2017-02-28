@@ -1,6 +1,7 @@
 package com.pvirtech.pzpolice.main.bottomnavigationbar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.ui.activity.LeaveActivity;
 import com.pvirtech.pzpolice.ui.adapter.TaskMenuAdapter;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 
@@ -33,12 +35,17 @@ public class WorkFragment extends BaseFragment {
         TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, new TaskMenuAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                System.out.println("aaaaaaa");
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(mContext, LeaveActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
 
             @Override
             public boolean onItemLongClick(int position) {
-                System.out.println("aaaaaaa");
+
                 return false;
             }
         });
