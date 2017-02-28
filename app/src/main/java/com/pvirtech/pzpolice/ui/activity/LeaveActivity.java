@@ -56,23 +56,25 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
         Date date;
         if (TextUtils.isEmpty(editText.getText())) {
             date = new Date(System.currentTimeMillis());
-            editText.setText(getDateToYMDHM(date));
         } else {
             String editTextString = editText.getText().toString();
             date = getDateFromYMDHM(editTextString);
         }
+        final String[] times = {getDateByFrom(date, "yyyy-MM-dd"), getDateByFrom(date, "HH:mm")};
         Calendar calendar = java.util.Calendar.getInstance();
         calendar.setTime(date);
         calendar.getTime();
         DatePicker datePicker = (DatePicker) view.findViewById(R.id.date_picker);
         // 初始化DatePicker组件，初始化时指定监听器
+
         datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String datePickerString = year + "-" + getWidthZero((monthOfYear + 1)) + "-" + getWidthZero(dayOfMonth);
-                String[] date = editText.getText().toString().split(" ");
+               /* String[] date = editText.getText().toString().split(" ");
                 date[0] = datePickerString;
-                editText.setText(date[0] + " " + date[1]);
+                editText.setText(date[0] + " " + date[1]);*/
+                times[0] = datePickerString;
                 System.out.println("=======" + datePickerString);
             }
         });
@@ -87,11 +89,11 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-
                 String timePickerString = getWidthZero(hourOfDay) + ":" + getWidthZero(minute);
-                String[] date = editText.getText().toString().split(" ");
+               /* String[] date = editText.getText().toString().split(" ");
                 date[1] = timePickerString;
-                editText.setText(date[0] + " " + date[1]);
+                editText.setText(date[0] + " " + date[1]);*/
+                times[1] = timePickerString;
                 System.out.println("=======" + timePickerString);
             }
         });
@@ -100,6 +102,8 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String data = times[0] + " " + times[1];
+                        editText.setText(data);
                         dialog.dismiss();
                     }
                 }
@@ -128,6 +132,11 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
 
     public static String getDateToYMDHM(Date date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return format.format(date);
+    }
+
+    public static String getDateByFrom(Date date, String strFormat) {
+        SimpleDateFormat format = new SimpleDateFormat(strFormat);
         return format.format(date);
     }
 
