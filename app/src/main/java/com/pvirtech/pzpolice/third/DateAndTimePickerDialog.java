@@ -6,7 +6,6 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -25,7 +24,7 @@ public class DateAndTimePickerDialog {
 
     public void show(Activity mContext, final TextView inputView, String title) {
         LayoutInflater inflater = mContext.getLayoutInflater();
-        View view = inflater.inflate(R.layout.date_time_picker_layout, (ViewGroup) mContext.findViewById(R.id.root_view));
+        View view = inflater.inflate(R.layout.date_time_picker_layout, null);
         /**
          * 设置日期
          */
