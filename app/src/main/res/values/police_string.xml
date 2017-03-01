@@ -2,13 +2,13 @@
 <resources>
     <string name="attendance">考勤</string>
     <string name="attendance_report">考勤申报</string>
-    <string name="vacate">请销假</string>
     <string name="time_to_declare">时间申报</string>
     <string name="attendance_records">考勤记录</string>
     <string name="declare_audit">申报审核</string>
     <string name="leave">请假</string>
+    <string name="sign">签到</string>
+
     <string name="sick_leave">销假</string>
-    <string name="vacate_state">请销假</string>
     <string name="audit">审核</string>
 
     <string name="my_task">我的任务</string>
@@ -32,6 +32,12 @@
     <string name="work">工作</string>
     <string name="person">人员薄</string>
     <string name="scoreboard">积分榜</string>
+    <string name="start_time">开始时间:</string>
+    <string name="please_fill_in">请选择(必填)</string>
+    <string name="end_time">结束时间:</string>
+    <string name="total_leave_time">请假时长:</string>
+    <string name="leave_reason">请假事由:</string>
+    <string name="leave_type">请假类型:</string>
 
 
 </resources>

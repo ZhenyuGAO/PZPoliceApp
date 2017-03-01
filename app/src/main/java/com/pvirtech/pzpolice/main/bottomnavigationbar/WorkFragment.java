@@ -3,7 +3,6 @@ package com.pvirtech.pzpolice.main.bottomnavigationbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +35,7 @@ public class WorkFragment extends BaseFragment {
             @Override
             public void onItemClick(int position) {
                 switch (position) {
-                    case 0:
+                    case 1:
                         Intent intent = new Intent(mContext, LeaveActivity.class);
                         startActivity(intent);
                         break;
@@ -50,8 +49,8 @@ public class WorkFragment extends BaseFragment {
             }
         });
         task.setLayoutManager(new LinearLayoutManager(mContext));
-        task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
-        task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.HORIZONTAL));
+        /*task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.HORIZONTAL));*/
         task.setLayoutManager(new GridLayoutManager(mContext, 3));
         task.setAdapter(taskMenuAdapter);
         return view;

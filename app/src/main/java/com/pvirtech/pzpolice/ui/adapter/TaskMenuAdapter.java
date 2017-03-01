@@ -38,13 +38,17 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    public TaskMenuAdapter(Context context, OnRecyclerViewListener onRecyclerViewListener ) {
-        Icon icon = new Icon(context.getResources().getString(R.string.daily_work), R.mipmap.ic_clear);
+    public TaskMenuAdapter(Context context, OnRecyclerViewListener onRecyclerViewListener) {
+        Icon declare = new Icon(context.getResources().getString(R.string.time_to_declare), R.mipmap.declare);//时间申报
+        Icon leave = new Icon(context.getResources().getString(R.string.leave), R.mipmap.leave);//请假
+        Icon sickLeave = new Icon(context.getResources().getString(R.string.sick_leave), R.mipmap.sick_leave);//销假
+
+
+//        Icon sign = new Icon(context.getResources().getString(R.string.sign), R.mipmap.sign);
         mData = new ArrayList<>();
-        mData.add(icon);
-        mData.add(icon);
-        mData.add(icon);
-        mData.add(icon);
+        mData.add(declare);
+        mData.add(leave);
+        mData.add(sickLeave);
         this.onRecyclerViewListener = onRecyclerViewListener;
         mContext = context;
     }
