@@ -27,7 +27,7 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
     @BindView(R.id.tv_leave_type)
     TextView tvLeaveType;
     @BindView(R.id.tv_statrt_time)
-     TextView tvStatrtTime;
+    TextView tvStatrtTime;
     @BindView(R.id.tv_end_time)
     TextView tvEndTime;
     @BindView(R.id.tv_total_time)
@@ -51,25 +51,31 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
         presenter = new LeavePresenterImpl(LeaveActivity.this);
     }
 
-    private void show(Context mContext) {
+    private void show(Context mContext, final TextView inputView) {
         int length = LeaveType.values().length;
         final int items[] = new int[length];
-        String item[] = new String[length];
+        final String item[] = new String[length];
         int i = 0;
+        int selectedPostion = 0;
+        String data = inputView.getText().toString();
         for (LeaveType leaveType : LeaveType.values()) {
             Leave leave = leaveType.getValue();
             item[i] = leave.getStrType();
             items[i] = leave.getIntType();
             i++;
+            if (data.equals(leave.getStrType())) {
+                selectedPostion = i;
+            }
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);  //先得到构造器
         builder.setTitle("请选择请假类型"); //设置标题
         View mTitleView = LayoutInflater.from(mContext).inflate(R.layout.dialog_title, null);
         builder.setCustomTitle(mTitleView);
         builder.setIcon(R.mipmap.type);//设置图标，图片id即可
-        builder.setSingleChoiceItems(item, 2, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(item, selectedPostion, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                inputView.setText(item[which]);
                 dialog.dismiss();
             }
         });
@@ -87,17 +93,17 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
 
     }
 
-    @OnClick({R.id.tv_leave_type, R.id.tv_statrt_time, R.id.tv_end_time, R.id.tv_total_time, R.id.ed_leave_reason, R.id.submit})
+    @OnClick({R.id.ll_leave_type, R.id.ll_statrt_time, R.id.ll_end_time, R.id.tv_total_time, R.id.ed_leave_reason, R.id.submit})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_leave_type:
-                show(mContext);
+            case R.id.ll_leave_type:
+                show(mContext, tvLeaveType);
                 break;
-            case R.id.tv_statrt_time:
+            case R.id.ll_statrt_time:
                 DateAndTimePickerDialog dateAndTimePickerDialog = new DateAndTimePickerDialog();
                 dateAndTimePickerDialog.show(LeaveActivity.this, tvStatrtTime, "请选择时间");
                 break;
-            case R.id.tv_end_time:
+            case R.id.ll_end_time:
                 DateAndTimePickerDialog dateAndTimePickerDialog02 = new DateAndTimePickerDialog();
                 dateAndTimePickerDialog02.show(LeaveActivity.this, tvEndTime, "请选择时间");
                 break;
