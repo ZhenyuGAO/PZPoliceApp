@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="submit">提交</string>
+
+
     <string name="attendance">考勤</string>
     <string name="attendance_report">考勤申报</string>
     <string name="time_to_declare">时间申报</string>

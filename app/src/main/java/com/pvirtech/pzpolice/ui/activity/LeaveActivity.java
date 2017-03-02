@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
@@ -68,11 +69,14 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
             }
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);  //先得到构造器
-        builder.setTitle("请选择请假类型"); //设置标题
         View mTitleView = LayoutInflater.from(mContext).inflate(R.layout.dialog_title, null);
+        TextView tvTitle = (TextView) mTitleView.findViewById(R.id.tv_title);
+        tvTitle.setText("请选择请假类型");
+        ImageView iv_Title = (ImageView) mTitleView.findViewById(R.id.iv_title);
+        iv_Title.setImageResource(R.mipmap.type);
         builder.setCustomTitle(mTitleView);
-        builder.setIcon(R.mipmap.type);//设置图标，图片id即可
-        builder.setSingleChoiceItems(item, selectedPostion, new DialogInterface.OnClickListener() {
+
+        builder.setSingleChoiceItems(item, selectedPostion - 1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 inputView.setText(item[which]);
