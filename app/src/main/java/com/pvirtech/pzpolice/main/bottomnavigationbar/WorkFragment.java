@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.third.baidu.IndoorLocationActivity;
 import com.pvirtech.pzpolice.ui.activity.LeaveActivity;
 import com.pvirtech.pzpolice.ui.adapter.TaskMenuAdapter;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 
 import butterknife.BindView;
+
 
 
 /**
@@ -34,9 +36,22 @@ public class WorkFragment extends BaseFragment {
         TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, new TaskMenuAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
+                Intent intent;
                 switch (position) {
+                    case 0:
+                        intent = new Intent(mContext, LeaveActivity.class);
+                        startActivity(intent);
+                        break;
                     case 1:
-                        Intent intent = new Intent(mContext, LeaveActivity.class);
+                        intent = new Intent(mContext, LeaveActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        /*intent= new Intent(mContext, LeaveActivity.class);
+                        startActivity(intent);*/
+                        break;
+                    case 3:
+                        intent = new Intent(mContext, IndoorLocationActivity.class);
                         startActivity(intent);
                         break;
                 }
@@ -51,7 +66,7 @@ public class WorkFragment extends BaseFragment {
         task.setLayoutManager(new LinearLayoutManager(mContext));
         /*task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         task.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.HORIZONTAL));*/
-        task.setLayoutManager(new GridLayoutManager(mContext, 3));
+        task.setLayoutManager(new GridLayoutManager(mContext, 4));
         task.setAdapter(taskMenuAdapter);
         return view;
     }

@@ -1,7 +1,6 @@
 package com.pvirtech.pzpolice.third.baidu;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -9,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.baidu.location.BDLocation;
@@ -22,92 +21,55 @@ import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.ui.base.BaseActivity;
+
+import butterknife.ButterKnife;
 
 
 /**
  * 此demo用来展示如何结合定位SDK实现室内定位，并使用MyLocationOverlay绘制定位位置
  */
-public class IndoorLocationActivity extends Activity {
+public class IndoorLocationActivity extends BaseActivity {
 
     // 定位相关
     LocationClient mLocClient;
-    public MyLocationListenner myListener = new MyLocationListenner();
-    private LocationMode mCurrentMode;
+    MyLocationListenner myListener = new MyLocationListenner();
+    LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
-
     MapView mMapView;
     BaiduMap mBaiduMap;
-
     StripListView stripListView;
     BaseStripAdapter mFloorListAdapter;
     MapBaseIndoorMapInfo mMapBaseIndoorMapInfo = null;
-    static Context mContext;
     // UI相关
-
-    Button requestLocButton;
     boolean isFirstLoc = true; // 是否首次定位
-    Button button2;
     Double mLatiyude;
     Double mLongtude;
+    ImageView ivPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContext = this;
-
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         RelativeLayout layout = new RelativeLayout(this);
-
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mainview = inflater.inflate(R.layout.activity_location, null);
         layout.addView(mainview);
 
-
-        button2 = (Button) mainview.findViewById(R.id.button2);
-        button2.setOnClickListener(new OnClickListener() {
+        ivPosition = (ImageView) mainview.findViewById(R.id.iv_position);
+        ivPosition.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 movetome();
             }
         });
 
-        requestLocButton = (Button) mainview.findViewById(R.id.button1);
         mCurrentMode = LocationMode.NORMAL;
-        requestLocButton.setText("普通");
-        OnClickListener btnClickListener = new OnClickListener() {
-            public void onClick(View v) {
-                switch (mCurrentMode) {
-                    case NORMAL:
-                        requestLocButton.setText("跟随");
-                        mCurrentMode = LocationMode.FOLLOWING;
-                        mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true,
-                                mCurrentMarker));
-                        break;
-                    case COMPASS:
-                        requestLocButton.setText("普通");
-                        mCurrentMode = LocationMode.NORMAL;
-                        mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true,
-                                mCurrentMarker));
-                        break;
-                    case FOLLOWING:
-                        requestLocButton.setText("罗盘");
-                        mCurrentMode = LocationMode.COMPASS;
-                        mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true,
-                                mCurrentMarker));
-                        break;
-                    default:
-                        break;
-                }
-            }
-        };
-        requestLocButton.setOnClickListener(btnClickListener);
 
         // 地图初始化
         mMapView = (MapView) mainview.findViewById(R.id.bmapView);
@@ -129,17 +91,19 @@ public class IndoorLocationActivity extends Activity {
         stripListView = new StripListView(this);
         layout.addView(stripListView);
         setContentView(layout);
-        mFloorListAdapter = new BaseStripAdapter(IndoorLocationActivity.this);
 
+        ButterKnife.bind(this);
+        initTitleView("我的位置");
+        mContext = this;
+
+        mFloorListAdapter = new BaseStripAdapter(mContext);
         mBaiduMap.setOnBaseIndoorMapListener(new BaiduMap.OnBaseIndoorMapListener() {
             @Override
             public void onBaseIndoorMapMode(boolean b, MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
                 if (b == false || mapBaseIndoorMapInfo == null) {
                     stripListView.setVisibility(View.INVISIBLE);
-
                     return;
                 }
-
                 mFloorListAdapter.setmFloorList(mapBaseIndoorMapInfo.getFloors());
                 stripListView.setVisibility(View.VISIBLE);
                 stripListView.setStripAdapter(mFloorListAdapter);
@@ -173,7 +137,6 @@ public class IndoorLocationActivity extends Activity {
                     String floor = location.getFloor().toUpperCase();// 楼层
                     Log.i("indoor", "floor = " + floor + " position = " + mFloorListAdapter.getPosition(floor));
                     Log.i("indoor", "radius = " + location.getRadius() + " type = " + location.getNetworkLocationType());
-
 
 
                     boolean needUpdateFloor = true;
@@ -241,6 +204,19 @@ public class IndoorLocationActivity extends Activity {
         mMapView.onDestroy();
         mMapView = null;
         super.onDestroy();
+
+        /**
+         * 解决内存泄漏
+         */
+        mLocClient = null;
+        myListener = null;
+        mCurrentMode = null;
+        mCurrentMarker = null;
+        mMapView = null;
+        mBaiduMap = null;
+        stripListView = null;
+        mFloorListAdapter = null;
+        mMapBaseIndoorMapInfo = null;
     }
 
     private void movetome() {

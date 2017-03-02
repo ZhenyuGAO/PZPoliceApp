@@ -42,6 +42,7 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
         Icon declare = new Icon(context.getResources().getString(R.string.time_to_declare), R.mipmap.declare);//时间申报
         Icon leave = new Icon(context.getResources().getString(R.string.leave), R.mipmap.leave);//请假
         Icon sickLeave = new Icon(context.getResources().getString(R.string.sick_leave), R.mipmap.sick_leave);//销假
+        Icon position = new Icon(context.getResources().getString(R.string.position), R.mipmap.position);//销假
 
 
 //        Icon sign = new Icon(context.getResources().getString(R.string.sign), R.mipmap.sign);
@@ -49,6 +50,7 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
         mData.add(declare);
         mData.add(leave);
         mData.add(sickLeave);
+        mData.add(position);
         this.onRecyclerViewListener = onRecyclerViewListener;
         mContext = context;
     }

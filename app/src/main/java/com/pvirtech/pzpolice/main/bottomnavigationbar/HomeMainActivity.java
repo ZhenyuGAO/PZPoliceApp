@@ -39,7 +39,7 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
      * 设置显示主页
      */
     SettingFragment mSettingFragment = new SettingFragment();
-    String[] titles = {"我的任务", "我的工作","人员簿", "积分榜"};
+    String[] titles = {"我的任务", "我的考勤","人员簿", "积分榜"};
     Toolbar toolbar;
     private Context mContext = null;
 
@@ -79,7 +79,7 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
                 .setHideOnSelect(true);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.task)).setActiveColorResource(R.color.button_theme)
                 .setBadgeItem(numberBadgeItem))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.work)).setActiveColorResource(R.color.button_theme))
+                .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.attendance)).setActiveColorResource(R.color.button_theme))
                 .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.person)).setActiveColorResource(R.color.button_theme))
                 .addItem(new BottomNavigationItem(R.mipmap.ic_launcher, mContext.getResources().getString(R.string.scoreboard)).setActiveColorResource(R.color.button_theme))
 //                .addItem(new BottomNavigationItem(R.mipmap.ic_videogame_asset_white_24dp, "Games").setActiveColorResource(R.color.grey)

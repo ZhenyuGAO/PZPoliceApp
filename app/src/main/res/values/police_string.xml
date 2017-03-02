@@ -10,9 +10,10 @@
     <string name="declare_audit">申报审核</string>
     <string name="leave">请假</string>
     <string name="sign">签到</string>
-
+    <string name="position">我的位置</string>
     <string name="sick_leave">销假</string>
     <string name="audit">审核</string>
+
 
     <string name="my_task">我的任务</string>
     <string name="daily_work">日常工作</string>
