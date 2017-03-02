@@ -1,5 +1,6 @@
 package com.pvirtech.pzpolice.ui.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,16 +12,27 @@ import com.pvirtech.pzpolice.utils.AppManager;
 import com.pvirtech.pzpolice.utils.LoadingViewProgress;
 
 import butterknife.ButterKnife;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by pd on 2016/9/19.
  */
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
-
+    public CompositeSubscription compositeSubscription = new CompositeSubscription();
+    public Context mContext;
+    public String TAG ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
+            compositeSubscription.unsubscribe();
+        }
     }
 
     @Override

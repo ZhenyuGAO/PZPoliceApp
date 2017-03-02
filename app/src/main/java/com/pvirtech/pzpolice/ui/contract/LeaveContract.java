@@ -1,6 +1,8 @@
 package com.pvirtech.pzpolice.ui.contract;
 
-import android.app.Activity;
+import android.content.Context;
+
+import com.pvirtech.pzpolice.ui.AppInterfaces.OnSelectedListener;
 
 /**
  * Created by youpengda on 2017/2/28.
@@ -9,13 +11,26 @@ import android.app.Activity;
 public class LeaveContract {
 
     public interface View {
-        void selectedStartTime(String data);
+        void selectedTotalTime(String data);
+
+        void submitting();
+
+        void submitSuccess();
+
+        void submitFailed();
+
+        void showWarning(String data);
     }
 
     public interface Presenter {
+        void showLeaveType(Context mContext, String data, OnSelectedListener onSelectedListener);
+
+        void submit(String strLeaveType, String strStartTime, String strEndTime, String strLeaveReason);
     }
 
     public interface Model {
+
+        String checkValidity();
     }
 
 

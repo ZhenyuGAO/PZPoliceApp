@@ -5,5 +5,7 @@ package com.pvirtech.pzpolice.main;
  */
 
 public class Constant {
+    public static String SUCCESS = "SUCCESS";
+    public static String FALILED = "FALILED";
 
 }

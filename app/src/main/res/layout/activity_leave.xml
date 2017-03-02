@@ -4,7 +4,7 @@
               android:id="@+id/root_view"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/screen_background"
+              android:background="@color/content_background"
               android:orientation="vertical"
               tools:context="com.pvirtech.pzpolice.ui.activity.LeaveActivity">
 

@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.ui.AppInterfaces.OnSelectedListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,14 +22,14 @@ import java.util.Date;
 
 public class DateAndTimePickerDialog {
 
-    public void show(Activity mContext, final TextView inputView, String title) {
+    public void show(Activity mContext, String dateAndTime, String title, final OnSelectedListener listener) {
         LayoutInflater inflater = mContext.getLayoutInflater();
         View view = inflater.inflate(R.layout.date_time_picker_layout, null);
         /**
          * 设置日期
          */
         Date date;
-        String dateAndTime = inputView.getText().toString();
+
         if (TextUtils.isEmpty(dateAndTime) || dateAndTime.equals(mContext.getResources().getString(R.string.please_fill_in))) {
             date = new Date(System.currentTimeMillis());
         } else {
@@ -74,7 +74,7 @@ public class DateAndTimePickerDialog {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String data = times[0] + " " + times[1];
-                inputView.setText(data);
+                listener.onSelected(data);
                 dialog.dismiss();
             }
         });
