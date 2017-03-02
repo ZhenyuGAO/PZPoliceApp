@@ -240,7 +240,7 @@
 
                 <com.dd.CircularProgressButton
                     android:id="@+id/submit"
-                    android:layout_width="196dp"
+                    android:layout_width="@dimen/large_button_width"
                     android:layout_height="@dimen/large_button"
                     android:textColor="@color/cpb_white"
                     android:textSize="18sp"
