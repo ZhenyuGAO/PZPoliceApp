@@ -121,7 +121,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MonthlyCalendarActivity"
+            android:name=".ui.activity.MonthlyCalendarActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity

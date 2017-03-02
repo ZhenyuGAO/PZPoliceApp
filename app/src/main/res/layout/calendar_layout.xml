@@ -13,7 +13,7 @@
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/work_wtatus"
+        android:id="@+id/work_status"
         android:background="@drawable/work_status_background"
         android:layout_width="4dp"
         android:layout_height="4dp" />

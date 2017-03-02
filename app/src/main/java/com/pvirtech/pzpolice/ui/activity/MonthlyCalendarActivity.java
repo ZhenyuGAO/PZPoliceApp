@@ -1,4 +1,4 @@
-package com.pvirtech.pzpolice;
+package com.pvirtech.pzpolice.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.entity.WorkDay;
 import com.pvirtech.pzpolice.enumeration.DayStatus;
 import com.pvirtech.pzpolice.enumeration.WorkStatus;

@@ -74,8 +74,10 @@ public class CalendarAdapter extends RecyclerView.Adapter {
         if (workDay.getDayStatus() == DayStatus.EMPTY.getValue()) {
             holder.text.setTextColor(0xFF4586ED);
             holder.calendar_root_view.setBackgroundResource(R.drawable.day_week_background);
+            holder.workStatus.setVisibility(View.INVISIBLE);
         }
         if (workDay.getDayStatus() == DayStatus.WEEK.getValue()) {
+            holder.workStatus.setVisibility(View.INVISIBLE);
             holder.text.setTextColor(0xFF4586ED);
             holder.calendar_root_view.setBackgroundResource(R.drawable.day_week_background);
         }
@@ -90,6 +92,7 @@ public class CalendarAdapter extends RecyclerView.Adapter {
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView text;
+        TextView workStatus;
         LinearLayout calendar_root_view;
         int position;
 
@@ -97,6 +100,7 @@ public class CalendarAdapter extends RecyclerView.Adapter {
             super(itemView);
             calendar_root_view = (LinearLayout) itemView.findViewById(R.id.calendar_root_view);
             text = (TextView) itemView.findViewById(R.id.text);
+            workStatus = (TextView) itemView.findViewById(R.id.work_status);
             calendar_root_view.setOnClickListener(this);
             calendar_root_view.setOnLongClickListener(this);
         }

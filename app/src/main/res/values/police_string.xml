@@ -11,6 +11,7 @@
     <string name="leave">请假</string>
     <string name="sign">签到</string>
     <string name="position">我的位置</string>
+    <string name="calendlar">月历打卡</string>
     <string name="sick_leave">销假</string>
     <string name="audit">审核</string>
 
