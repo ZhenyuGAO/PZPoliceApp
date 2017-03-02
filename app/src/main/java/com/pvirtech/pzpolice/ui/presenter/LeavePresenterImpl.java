@@ -69,7 +69,7 @@ public class LeavePresenterImpl implements LeaveContract.Presenter {
         TextView tvTitle = (TextView) mTitleView.findViewById(R.id.tv_title);
         tvTitle.setText("请选择请假类型");
         ImageView iv_Title = (ImageView) mTitleView.findViewById(R.id.iv_title);
-        iv_Title.setImageResource(R.mipmap.type);
+        iv_Title.setImageResource(R.mipmap.type_white);
         builder.setCustomTitle(mTitleView);
 
         builder.setSingleChoiceItems(item, selectedPostion - 1, new DialogInterface.OnClickListener() {
@@ -93,18 +93,6 @@ public class LeavePresenterImpl implements LeaveContract.Presenter {
         });
         builder.create().show();
     }
-
-
-    /*@Override
-    public void showTotalTime() {
-        if (!TextUtils.isEmpty(model.getStrLeaveStartTime()) && !TextUtils.isEmpty(model.getStrLeaveEndTime())) {
-            if (!compareTime(model.getStrLeaveStartTime(), model.getStrLeaveEndTime()).equals(Constant.SUCCESS)) {
-                return;
-            }
-            model.setStrLeaveTotalTime(getIntervalTime(model.getStrLeaveStartTime(), model.getStrLeaveEndTime()));
-            view.selectedTotalTime(model.getStrLeaveTotalTime());
-        }
-    }*/
 
     @Override
     public void submit(String strLeaveType, String strStartTime, String strEndTime, String strLeaveReason) {
