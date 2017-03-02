@@ -30,6 +30,7 @@ public class SickLeavePresenterImpl implements SickLeaveContract.Presenter {
     CompositeSubscription compositeSubscription;
 
     public SickLeavePresenterImpl(SickLeaveActivity sickLeaveActivity, CompositeSubscription compositeSubscription) {
+        view = sickLeaveActivity;
         this.compositeSubscription = compositeSubscription;
     }
 
@@ -39,29 +40,28 @@ public class SickLeavePresenterImpl implements SickLeaveContract.Presenter {
     @Override
     public void initView() {
         Map map = new HashMap();
+        view.viewShowLoading("");
         Subscription subscribe01 = RetrofitHttp.provideClientApi().CaseQueryData(map).doOnSubscribe(new Action0() {
             @Override
             public void call() {
-                int a = 0;
                 L.d("sucess");
-                view.submitting();
             }
         }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<HttpResult<List<CaseQueryEntity>>>() {
             @Override
             public void call(HttpResult<List<CaseQueryEntity>> response) {
                 String s = response.getResultCode();
+                response.getData();
                 model = new SickLeaveModelImpl("123456789", "病假", "2017-03-01 18:18", "2017-03-01 18:18", "想请假了", "");
                 String totalTime = OperationUtils.getIntervalTime("2017-03-01 18:18", "2017-03-01 18:18");
                 view.initView("123456789", "病假", "2017-03-01 18:18", "2017-03-01 18:18", "想请假了", totalTime);
-                response.getData();
                 L.d("sucess");
-                view.submitSuccess();
+                view.viewHideLoading();
             }
         }, new Action1<Throwable>() {
             @Override
             public void call(Throwable throwable) {
                 L.d("sucess");
-                view.submitFailed();
+                view.viewShowError("");
             }
         });
         compositeSubscription.add(subscribe01);

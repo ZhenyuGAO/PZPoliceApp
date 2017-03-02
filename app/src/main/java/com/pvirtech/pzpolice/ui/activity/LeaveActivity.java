@@ -63,7 +63,7 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
 
     @Override
     public void submitSuccess() {
-        Toasty.error(mContext, "提交成功").show();
+        Toasty.success(mContext, "提交成功").show();
         submit.setProgress(100);
     }
 
@@ -77,6 +77,21 @@ public class LeaveActivity extends BaseActivity implements LeaveContract.View {
     public void showWarning(String data) {
         System.out.println("aa");
         Toasty.warning(mContext, data).show();
+    }
+
+    @Override
+    public void viewShowLoading(String msg) {
+
+    }
+
+    @Override
+    public void viewHideLoading() {
+
+    }
+
+    @Override
+    public void viewShowError(String msg) {
+
     }
 
 

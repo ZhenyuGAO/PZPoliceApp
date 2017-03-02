@@ -70,8 +70,9 @@ public class SickLeaveActivity extends BaseActivity implements SickLeaveContract
 
     @Override
     public void submitSuccess() {
-        Toasty.error(mContext, "提交成功").show();
+        Toasty.success(mContext, "提交成功").show();
         submit.setProgress(100);
+
     }
 
     @Override
@@ -85,8 +86,23 @@ public class SickLeaveActivity extends BaseActivity implements SickLeaveContract
         Toasty.warning(mContext, data).show();
     }
 
+    @Override
+    public void viewShowLoading(String msg) {
+        showLoading(msg);
+    }
 
-    @OnClick({R.id.ll_end_time, R.id.submit,R.id.ll_statrt_time, R.id.ll_end_time})
+    @Override
+    public void viewHideLoading() {
+        hideLoading();
+    }
+
+    @Override
+    public void viewShowError(String msg) {
+        showError(msg);
+    }
+
+
+    @OnClick({R.id.submit, R.id.ll_statrt_time, R.id.ll_end_time})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.submit:
@@ -119,5 +135,6 @@ public class SickLeaveActivity extends BaseActivity implements SickLeaveContract
                 break;
         }
     }
+
 
 }

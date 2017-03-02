@@ -12,4 +12,22 @@ public interface BaseContractView {
     void submitFailed();
 
     void showWarning(String data);
+
+    /**
+     * show loading message
+     *
+     * @param msg
+     */
+    void viewShowLoading(String msg);
+
+    /**
+     * hide loading
+     */
+    void viewHideLoading();
+
+    /**
+     * show error message
+     */
+    void viewShowError(String msg);
+
 }

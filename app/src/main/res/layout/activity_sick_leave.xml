@@ -258,7 +258,6 @@
                     android:layout_marginLeft="@dimen/small_interval"
                     android:layout_marginRight="@dimen/small_interval"
                     android:layout_weight="1"
-                    android:enabled="false"
                     android:gravity="left"
                     android:textSize="@dimen/big_small_text"/>
             </LinearLayout>

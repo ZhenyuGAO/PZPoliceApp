@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 
 import com.pvirtech.pzpolice.R;
@@ -20,7 +21,8 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
     public CompositeSubscription compositeSubscription = new CompositeSubscription();
     public Context mContext;
-    public String TAG ;
+    public String TAG;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void showLoading(String msg) {
-        LoadingViewProgress.showDialogForLoading(this, "正在加载。。。", false);
+        if (TextUtils.isEmpty(msg)) {
+            LoadingViewProgress.showDialogForLoading(this, "正在加载。。。", false);
+        } else {
+            LoadingViewProgress.showDialogForLoading(this, msg, false);
+        }
     }
 
     @Override
