@@ -18,7 +18,7 @@ public class OperationUtils {
             ex.printStackTrace();
             return "";
         }
-        if (between < 0) {
+        if (between <=0) {
             return "";
         }
         long day = between / (24 * 60 * 60 * 1000);

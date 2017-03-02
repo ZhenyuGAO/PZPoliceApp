@@ -14,6 +14,7 @@ import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.entity.Icon;
 import com.pvirtech.pzpolice.third.baidu.IndoorLocationActivity;
 import com.pvirtech.pzpolice.ui.activity.LeaveActivity;
+import com.pvirtech.pzpolice.ui.activity.SickLeaveActivity;
 import com.pvirtech.pzpolice.ui.adapter.TaskMenuAdapter;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 
@@ -42,13 +43,13 @@ public class WorkFragment extends BaseFragment {
         Icon declare = new Icon(mContext.getResources().getString(R.string.time_to_declare), R.mipmap.declare);//时间申报
         Icon leave = new Icon(mContext.getResources().getString(R.string.leave), R.mipmap.leave);//请假
         Icon sickLeave = new Icon(mContext.getResources().getString(R.string.sick_leave), R.mipmap.sick_leave);//销假
-        Icon position = new Icon(mContext.getResources().getString(R.string.position), R.mipmap.position);//销假
+        Icon position = new Icon(mContext.getResources().getString(R.string.position), R.mipmap.position);//我的位置
         mData = new ArrayList<>();
         mData.add(declare);
         mData.add(leave);
         mData.add(sickLeave);
         mData.add(position);
-        TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, new TaskMenuAdapter.OnRecyclerViewListener() {
+        TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, mData, new TaskMenuAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
                 Intent intent;
@@ -60,7 +61,7 @@ public class WorkFragment extends BaseFragment {
                     intent = new Intent(mContext, LeaveActivity.class);
                     startActivity(intent);
                 } else if (strSelected.equals(mContext.getResources().getString(R.string.sick_leave))) {
-                    intent = new Intent(mContext, LeaveActivity.class);
+                    intent = new Intent(mContext, SickLeaveActivity.class);
                     startActivity(intent);
                 } else if (strSelected.equals(mContext.getResources().getString(R.string.position))) {
                     intent = new Intent(mContext, IndoorLocationActivity.class);

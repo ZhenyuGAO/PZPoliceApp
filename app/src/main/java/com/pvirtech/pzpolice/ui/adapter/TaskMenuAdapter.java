@@ -37,17 +37,17 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    public TaskMenuAdapter(Context context, OnRecyclerViewListener onRecyclerViewListener) {
-
-        this.onRecyclerViewListener = onRecyclerViewListener;
+    public TaskMenuAdapter(Context context, List<Icon> mData, OnRecyclerViewListener onRecyclerViewListener) {
         mContext = context;
+        this.mData = mData;
+        this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.icon_layout, null);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
-                .WRAP_CONTENT);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup
+                .LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(lp);
         return new ViewHolder(view);
     }
@@ -64,7 +64,6 @@ public class TaskMenuAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        int a = mData.size();
         return mData.size();
     }
 

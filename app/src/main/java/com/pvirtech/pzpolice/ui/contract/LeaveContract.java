@@ -10,16 +10,10 @@ import com.pvirtech.pzpolice.ui.AppInterfaces.OnSelectedListener;
 
 public class LeaveContract {
 
-    public interface View {
+    public interface View extends BaseContractView {
         void selectedTotalTime(String data);
 
-        void submitting();
 
-        void submitSuccess();
-
-        void submitFailed();
-
-        void showWarning(String data);
     }
 
     public interface Presenter {

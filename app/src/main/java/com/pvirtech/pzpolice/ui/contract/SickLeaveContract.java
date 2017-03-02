@@ -7,18 +7,15 @@ package com.pvirtech.pzpolice.ui.contract;
 public interface SickLeaveContract {
 
 
-    public interface View {
+    public interface View extends BaseContractView {
+        void initView(String strId, String strLeaveType, String strLeaveStartTime, String strLeaveEndTime, String
+                strLeaveReason, String strLeaveTotalTime);
 
-        void submitting();
 
-        void submitSuccess();
-
-        void submitFailed();
-
-        void showWarning(String data);
     }
 
     public interface Presenter {
+        void initView();
 
         void submit(String strId, String strStartTime, String strEndTime, String strReason);
     }
