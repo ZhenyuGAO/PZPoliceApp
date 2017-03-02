@@ -79,7 +79,7 @@ public class IndoorLocationActivity extends BaseActivity {
         // 开启室内图
         mBaiduMap.setIndoorEnable(true);
         // 定位初始化
-        mLocClient = new LocationClient(getApplicationContext());//解决内存泄漏的问题
+        mLocClient = new LocationClient(this);//解决内存泄漏的问题
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true); // 打开gps

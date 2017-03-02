@@ -11,13 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.entity.Icon;
 import com.pvirtech.pzpolice.third.baidu.IndoorLocationActivity;
 import com.pvirtech.pzpolice.ui.activity.LeaveActivity;
 import com.pvirtech.pzpolice.ui.adapter.TaskMenuAdapter;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 
-import butterknife.BindView;
+import java.util.ArrayList;
+import java.util.List;
 
+import butterknife.BindView;
 
 
 /**
@@ -27,34 +30,43 @@ public class WorkFragment extends BaseFragment {
     @BindView(R.id.task)
     RecyclerView task;
     private Context mContext = null;
+    private List<Icon> mData = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_work, container, false);
         mContext = getActivity();
         initView(view);
+
+
+        Icon declare = new Icon(mContext.getResources().getString(R.string.time_to_declare), R.mipmap.declare);//时间申报
+        Icon leave = new Icon(mContext.getResources().getString(R.string.leave), R.mipmap.leave);//请假
+        Icon sickLeave = new Icon(mContext.getResources().getString(R.string.sick_leave), R.mipmap.sick_leave);//销假
+        Icon position = new Icon(mContext.getResources().getString(R.string.position), R.mipmap.position);//销假
+        mData = new ArrayList<>();
+        mData.add(declare);
+        mData.add(leave);
+        mData.add(sickLeave);
+        mData.add(position);
         TaskMenuAdapter taskMenuAdapter = new TaskMenuAdapter(mContext, new TaskMenuAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
                 Intent intent;
-                switch (position) {
-                    case 0:
-                        intent = new Intent(mContext, LeaveActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        intent = new Intent(mContext, LeaveActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        /*intent= new Intent(mContext, LeaveActivity.class);
-                        startActivity(intent);*/
-                        break;
-                    case 3:
-                        intent = new Intent(mContext, IndoorLocationActivity.class);
-                        startActivity(intent);
-                        break;
+                String strSelected = mData.get(position).getName();
+                if (strSelected.equals(mContext.getResources().getString(R.string.time_to_declare))) {
+                    intent = new Intent(mContext, LeaveActivity.class);
+                    startActivity(intent);
+                } else if (strSelected.equals(mContext.getResources().getString(R.string.leave))) {
+                    intent = new Intent(mContext, LeaveActivity.class);
+                    startActivity(intent);
+                } else if (strSelected.equals(mContext.getResources().getString(R.string.sick_leave))) {
+                    intent = new Intent(mContext, LeaveActivity.class);
+                    startActivity(intent);
+                } else if (strSelected.equals(mContext.getResources().getString(R.string.position))) {
+                    intent = new Intent(mContext, IndoorLocationActivity.class);
+                    startActivity(intent);
                 }
+
             }
 
             @Override

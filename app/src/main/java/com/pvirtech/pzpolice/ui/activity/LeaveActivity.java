@@ -19,7 +19,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.dmoral.toasty.Toasty;
 
-
+/**
+ * 请假主界面
+ */
 public class LeaveActivity extends BaseActivity implements LeaveContract.View {
     @BindView(R.id.tv_leave_type)
     TextView tvLeaveType;
