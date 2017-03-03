@@ -10,7 +10,7 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 
 import com.pvirtech.pzpolice.R;
-import com.pvirtech.pzpolice.ui.AppInterfaces.OnSelectedListener;
+import com.pvirtech.pzpolice.ui.appInterfaces.OnSelectedListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
