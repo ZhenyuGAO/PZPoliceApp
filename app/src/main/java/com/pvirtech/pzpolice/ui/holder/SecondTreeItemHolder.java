@@ -4,16 +4,20 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pvirtech.pzpolice.R;
 import com.unnamed.b.atv.model.TreeNode;
+
+import static com.pvirtech.pzpolice.R.id.root_view;
 
 
 /**
  * Created by Bogdan Melnychuk on 2/12/15.
  */
 public class SecondTreeItemHolder extends TreeNode.BaseNodeViewHolder<SecondTreeItemHolder.IconTreeItem> {
+    LinearLayout rootView;
     private TextView tvTitle;
     private ImageView iv_Nav;
 
@@ -25,6 +29,7 @@ public class SecondTreeItemHolder extends TreeNode.BaseNodeViewHolder<SecondTree
     public View createNodeView(final TreeNode node, IconTreeItem value) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.layout_tree_second, null, false);
+        rootView = (LinearLayout) view.findViewById(root_view);
         tvTitle = (TextView) view.findViewById(R.id.tv_title);
         tvTitle.setText(value.text);
 
@@ -34,13 +39,19 @@ public class SecondTreeItemHolder extends TreeNode.BaseNodeViewHolder<SecondTree
         if (node.isLeaf()) {
             iv_Nav.setVisibility(View.INVISIBLE);
         }
+        tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("aaaa");
+            }
+        });
         return view;
     }
 
     @Override
     public void toggle(boolean active) {
         System.out.println("aaaaaaaaa");
-        iv_Nav.setImageResource(active ? R.mipmap.down : R.mipmap.right);
+        iv_Nav.setImageResource(active ? R.mipmap.add : R.mipmap.reduce);
     }
 
     public static class IconTreeItem {

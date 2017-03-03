@@ -137,8 +137,19 @@
             android:name=".file.down.DownloadService"
             android:priority="1000"/>
 
-        <activity android:name=".ui.activity.LeaveActivity"/>
-        <activity android:name=".ui.activity.SickLeaveActivity">
+        <activity
+            android:name=".ui.activity.LeaveActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.SickLeaveActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.AttendanceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

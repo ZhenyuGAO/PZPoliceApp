@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.entity.Icon;
 import com.pvirtech.pzpolice.third.baidu.IndoorLocationActivity;
+import com.pvirtech.pzpolice.ui.activity.AttendanceActivity;
 import com.pvirtech.pzpolice.ui.activity.LeaveActivity;
 import com.pvirtech.pzpolice.ui.activity.MonthlyCalendarActivity;
 import com.pvirtech.pzpolice.ui.activity.SickLeaveActivity;
@@ -40,13 +41,15 @@ public class WorkFragment extends BaseFragment {
         mContext = getActivity();
         initView(view);
 
-
+        Icon attendance = new Icon(mContext.getResources().getString(R.string.attendance), R.mipmap.attendance02);
         Icon declare = new Icon(mContext.getResources().getString(R.string.time_to_declare), R.mipmap.declare);//时间申报
         Icon leave = new Icon(mContext.getResources().getString(R.string.leave), R.mipmap.leave);//请假
         Icon sickLeave = new Icon(mContext.getResources().getString(R.string.sick_leave), R.mipmap.sick_leave);//销假
         Icon position = new Icon(mContext.getResources().getString(R.string.position), R.mipmap.position);//我的位置
-        Icon calendar = new Icon(mContext.getResources().getString(R.string.calendlar), R.mipmap.calendar);//我的位置
+        Icon calendar = new Icon(mContext.getResources().getString(R.string.calendlar), R.mipmap.calendar);
+
         mData = new ArrayList<>();
+        mData.add(attendance);
         mData.add(declare);
         mData.add(leave);
         mData.add(sickLeave);
@@ -71,6 +74,9 @@ public class WorkFragment extends BaseFragment {
                     startActivity(intent);
                 } else if (strSelected.equals(mContext.getResources().getString(R.string.calendlar))) {
                     intent = new Intent(mContext, MonthlyCalendarActivity.class);
+                    startActivity(intent);
+                }else if (strSelected.equals(mContext.getResources().getString(R.string.attendance))) {
+                    intent = new Intent(mContext, AttendanceActivity.class);
                     startActivity(intent);
                 }
 

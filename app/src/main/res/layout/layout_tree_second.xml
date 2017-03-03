@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:minWidth="1000dp"
-    android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/big_small_button"
+              android:id="@+id/root_view"
+              android:minWidth="1000dp"
+              android:orientation="horizontal">
 
     <View
         android:layout_width="@dimen/small_interval"
@@ -15,14 +17,14 @@
         android:id="@+id/iv_nav"
         android:layout_width="@dimen/micro_button"
         android:layout_height="@dimen/micro_button"
-        android:src="@mipmap/down" />
+        android:src="@mipmap/add"/>
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/small_button"
-        android:layout_height="@dimen/small_button"
+        android:layout_width="@dimen/big_micro_button"
+        android:layout_height="@dimen/big_micro_button"
         android:layout_marginLeft="@dimen/micro_interval"
-        android:src="@mipmap/person" />
+        android:src="@mipmap/person"/>
 
     <TextView
         android:id="@+id/tv_title"
@@ -30,5 +32,5 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/small_interval"
         android:gravity="center_vertical"
-        android:text="title" />
+        android:text="title"/>
 </LinearLayout>
