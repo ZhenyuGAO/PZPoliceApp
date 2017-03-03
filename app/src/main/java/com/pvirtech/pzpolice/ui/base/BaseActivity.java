@@ -35,6 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }
+        LoadingViewProgress.hideDialogForLoading();//防止内存泄漏
     }
 
     @Override

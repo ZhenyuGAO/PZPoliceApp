@@ -46,7 +46,7 @@ public class LoadingViewProgress {
      * 关闭加载对话框
      */
     public static void hideDialogForLoading() {
-        if (mLoadingDialog != null && mLoadingDialog.isShowing()) {
+        if (mLoadingDialog != null) {
             mLoadingDialog.cancel();
         }
     }
