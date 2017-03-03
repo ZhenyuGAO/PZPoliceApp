@@ -2,7 +2,7 @@ package com.pvirtech.pzpolice.ui.contract;
 
 import android.content.Context;
 
-import com.pvirtech.pzpolice.ui.AppInterfaces.OnSelectedListener;
+import com.pvirtech.pzpolice.ui.appInterfaces.OnSelectedListener;
 
 /**
  * Created by youpengda on 2017/2/28.
