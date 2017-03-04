@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.frame.test.mvp.MvpActivity">
+    tools:context=".test.mvp.MvpActivity">
 
     <Button
         android:text="Button1111111111"

@@ -55,7 +55,7 @@
             android:value="LyViSQvHvCdsmw9eDMtAfGWbbgMKkXsu"/> <!-- http://lbsyun.baidu.com/apiconsole/key -->
 
         <activity
-            android:name=".main.WelcomeActivity"
+            android:name="com.pvirtech.pzpolice.main.WelcomeActivity"
             android:theme="@style/Theme.AppStartLoad">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

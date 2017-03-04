@@ -58,7 +58,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_cache" />
 
@@ -87,7 +87,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_image" />
 
@@ -116,7 +116,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_night" />
 
@@ -169,7 +169,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_recycleview" />
 
@@ -195,7 +195,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="我的下载" />
 
@@ -222,7 +222,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_recycleview_head" />
 
@@ -279,7 +279,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_feedback" />
                     </LinearLayout>
@@ -303,7 +303,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_clear" />
 
@@ -333,7 +333,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginLeft="12dp"
                             android:layout_weight="1"
                             android:text="@string/setting_update" />
 
