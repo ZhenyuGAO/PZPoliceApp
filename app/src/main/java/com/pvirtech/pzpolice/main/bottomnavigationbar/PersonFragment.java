@@ -22,20 +22,29 @@ public class PersonFragment extends BaseFragment {
     private AndroidTreeView tView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+            savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
         mContext = getActivity();
         initView(view);
 
         ViewGroup containerView = (ViewGroup) view.findViewById(R.id.container);
         TreeNode root = TreeNode.root();
-        TreeNode socialNetworks = new TreeNode(new FirstTreeItemHolder.IconTreeItem(R.mipmap.group, "彭州派出所")).setViewHolder(new FirstTreeItemHolder(getActivity()));
-        TreeNode facebook = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person, "李白")).setViewHolder(new SecondTreeItemHolder(getActivity()));
-        TreeNode linkedin = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person, "杜甫")).setViewHolder(new SecondTreeItemHolder(getActivity()));
-        TreeNode google = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person, "白起")).setViewHolder(new SecondTreeItemHolder(getActivity()));
-        TreeNode twitter = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person, "曹操")).setViewHolder(new SecondTreeItemHolder(getActivity()));
-        socialNetworks.addChildren(facebook, google, twitter, linkedin);
+        TreeNode socialNetworks = new TreeNode(new FirstTreeItemHolder.IconTreeItem(R.mipmap
+                .group, "彭州派出所")).setViewHolder(new FirstTreeItemHolder(getActivity()));
+        TreeNode facebook = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person,
+                "李白")).setViewHolder(new SecondTreeItemHolder(getActivity()));
+        TreeNode linkedin = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person,
+                "杜甫")).setViewHolder(new SecondTreeItemHolder(getActivity()));
+        TreeNode google = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person,
+                "白起")).setViewHolder(new SecondTreeItemHolder(getActivity()));
+        TreeNode twitter = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person,
+                "曹操")).setViewHolder(new SecondTreeItemHolder(getActivity()));
+        TreeNode yuefei = new TreeNode(new SecondTreeItemHolder.IconTreeItem(R.mipmap.person,
+                "岳飞")).setViewHolder(new SecondTreeItemHolder(getActivity()));
+        socialNetworks.addChildren(facebook, google, twitter, linkedin, yuefei);
         root.addChildren(socialNetworks);
+
         tView = new AndroidTreeView(getActivity(), root);
         tView.setDefaultAnimation(true);
         tView.setDefaultContainerStyle(R.style.TreeNodeStyleDivided, true);

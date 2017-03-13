@@ -28,6 +28,19 @@ public class CaseQueryEntity {
     private String depart_id;
     private String state;
 
+    public CaseQueryEntity(String ajay, String ajbh, String ajdd, String ajfssj, String ajhj,
+                           String ajsl_id, String delState, String depart_id, String state) {
+        this.ajay = ajay;
+        this.ajbh = ajbh;
+        this.ajdd = ajdd;
+        this.ajfssj = ajfssj;
+        this.ajhj = ajhj;
+        this.ajsl_id = ajsl_id;
+        this.delState = delState;
+        this.depart_id = depart_id;
+        this.state = state;
+    }
+
     public String getAjay() {
         return ajay;
     }

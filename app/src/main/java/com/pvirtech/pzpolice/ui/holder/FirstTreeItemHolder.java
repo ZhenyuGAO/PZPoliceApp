@@ -39,12 +39,12 @@ public class FirstTreeItemHolder extends TreeNode.BaseNodeViewHolder<FirstTreeIt
         if (node.isLeaf()) {
             iv_Nav.setVisibility(View.INVISIBLE);
         }
-        tvTitle.setOnClickListener(new View.OnClickListener() {
+        /*tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("aaaa");
             }
-        });
+        });*/
         return view;
     }
 

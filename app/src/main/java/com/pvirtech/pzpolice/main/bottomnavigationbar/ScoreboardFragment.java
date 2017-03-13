@@ -16,10 +16,14 @@ public class ScoreboardFragment extends BaseFragment {
     private Context mContext = null;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+            savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scoreboard, container, false);
         mContext = getActivity();
         initView(view);
+
+
+
         return view;
     }
 
@@ -28,4 +32,7 @@ public class ScoreboardFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
     }
+
+
+
 }
