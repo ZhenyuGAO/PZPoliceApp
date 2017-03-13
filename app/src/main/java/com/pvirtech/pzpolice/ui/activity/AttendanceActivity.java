@@ -3,6 +3,7 @@ package com.pvirtech.pzpolice.ui.activity;
 import android.os.Bundle;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.third.view.DaKaView;
 import com.pvirtech.pzpolice.ui.base.BaseActivity;
 import com.pvirtech.pzpolice.ui.contract.AttendanceContract;
 import com.pvirtech.pzpolice.ui.presenter.AttendancePresenterImpl;
@@ -20,10 +21,14 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
         ButterKnife.bind(this);
-        initTitleView("");
+        initTitleView("考勤打卡");
         mContext = AttendanceActivity.this;
         TAG = "LeaveActivity";
         presenter = new AttendancePresenterImpl(AttendanceActivity.this, compositeSubscription);
+
+
+        DaKaView daKaView = (DaKaView) findViewById(R.id.daka_view);
+        daKaView.setSearching(true);
     }
 
     @Override
