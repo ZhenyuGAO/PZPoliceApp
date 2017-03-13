@@ -6,6 +6,9 @@ import android.os.Bundle;
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.ui.base.BaseActivity;
 
+/**
+ * 设置界面
+ */
 public class SettingActivity extends BaseActivity {
     private Context mContext = null;
     @Override

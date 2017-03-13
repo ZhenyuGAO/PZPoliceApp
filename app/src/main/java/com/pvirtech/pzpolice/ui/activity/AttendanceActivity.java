@@ -9,6 +9,9 @@ import com.pvirtech.pzpolice.ui.presenter.AttendancePresenterImpl;
 
 import butterknife.ButterKnife;
 
+/**
+ * 考勤打卡
+ */
 public class AttendanceActivity extends BaseActivity implements AttendanceContract.View {
     AttendanceContract.Presenter presenter;
 
@@ -17,7 +20,7 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
         ButterKnife.bind(this);
-        initTitleView("考勤打卡");
+        initTitleView("");
         mContext = AttendanceActivity.this;
         TAG = "LeaveActivity";
         presenter = new AttendancePresenterImpl(AttendanceActivity.this, compositeSubscription);
