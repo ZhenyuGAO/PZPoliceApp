@@ -116,7 +116,7 @@ public class TaskFragment extends BaseFragment {
     private void addHeadView() {
         View headView = getActivity().getLayoutInflater().inflate(R.layout.head_view, (ViewGroup)
                 mRecyclerView.getParent(), false);
-        ((TextView) headView.findViewById(R.id.tv)).setText("烟草稽查任务");
+        ((TextView) headView.findViewById(R.id.tv)).setText("我的工作任务");
         mTaskAdapter.addHeaderView(headView);
     }
 
@@ -147,7 +147,7 @@ public class TaskFragment extends BaseFragment {
     }
 
     private void getData(int pageindex, boolean blnIsRefresh) {
-        CaseQueryEntity caseQueryEntity = new CaseQueryEntity("货运经营者使用擅自改装或者擅自改装已取得道路运输证的车辆案",
+        CaseQueryEntity caseQueryEntity = new CaseQueryEntity("我的贴罚单任务",
                 "川交高执测试大队罚[2016]3号", "", "2016年08月24日17时22分", "调查取证",
                 "20160824172331bbdc98380111", "0", "JT51GSJT51GStest", "待办");
 
