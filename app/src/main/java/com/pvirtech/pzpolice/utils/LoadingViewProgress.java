@@ -19,7 +19,7 @@ public class LoadingViewProgress {
     /**
      * 加载数据对话框
      */
-    private static Dialog mLoadingDialog;
+    private  Dialog mLoadingDialog;
 
 
     /**
@@ -29,7 +29,7 @@ public class LoadingViewProgress {
      * @param msg        对话框显示内容
      * @param cancelable 对话框是否可以取消
      */
-    public static void showDialogForLoading(Context context, String msg, boolean cancelable) {
+    public  void showDialogForLoading(Context context, String msg, boolean cancelable) {
         View view = LayoutInflater.from(context).inflate(R.layout.loading_view_progress, null);
         if (!TextUtils.isEmpty(msg)) {
             TextView loadingText = (TextView) view.findViewById(R.id.tv_loading);
@@ -45,7 +45,7 @@ public class LoadingViewProgress {
     /**
      * 关闭加载对话框
      */
-    public static void hideDialogForLoading() {
+    public  void hideDialogForLoading() {
         if (mLoadingDialog != null) {
             mLoadingDialog.cancel();
         }
