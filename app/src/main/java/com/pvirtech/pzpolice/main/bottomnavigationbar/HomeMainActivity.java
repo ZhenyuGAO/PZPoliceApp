@@ -207,7 +207,7 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
             startActivity(intent);
         } else if (id == R.id.cancellation) {
             new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("你确定注销吗?")
-                    .setContentText("你将要注销该账户").setConfirmText("是的，我要注销!")
+                    .setContentText("你将要注销该账户").setConfirmText("确定").setCancelText("取消")
                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
                 public void onClick(SweetAlertDialog sDialog) {
