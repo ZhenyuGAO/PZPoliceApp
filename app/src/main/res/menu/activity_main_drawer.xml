@@ -4,7 +4,7 @@
         <menu android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_information"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@mipmap/personal_information"
                 android:title="我的信息" />
             <item
                 android:id="@+id/nav_download"
@@ -17,7 +17,7 @@
             <item
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Tools" />
+                android:title="工具" />
         </menu>
     </item>
     <item android:title="Communicate">
@@ -27,9 +27,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="设置" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/cancellation"
+                android:icon="@mipmap/cancellation"
+                android:title="注销" />
         </menu>
     </item>
 

@@ -22,14 +22,18 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.file.down.DownloadActivity;
 import com.pvirtech.pzpolice.file.down.DownloadService;
+import com.pvirtech.pzpolice.main.AppLoginActivity;
 import com.pvirtech.pzpolice.ui.activity.SettingActivity;
+import com.pvirtech.pzpolice.utils.PreferenceUtils;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-public class HomeMainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, NavigationView.OnNavigationItemSelectedListener {
+public class HomeMainActivity extends AppCompatActivity implements BottomNavigationBar
+        .OnTabSelectedListener, NavigationView.OnNavigationItemSelectedListener {
     private ArrayList<Fragment> fragments;
     TaskFragment taskFragment = new TaskFragment();
     WorkFragment workFragment = new WorkFragment();
@@ -39,7 +43,7 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
      * 设置显示主页
      */
     SettingFragment mSettingFragment = new SettingFragment();
-    String[] titles = {"我的任务", "我的考勤","人员簿", "积分榜"};
+    String[] titles = {"我的任务", "我的考勤", "人员簿", "积分榜"};
     Toolbar toolbar;
     private Context mContext = null;
 
@@ -60,8 +64,8 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.app_name, R.string.app_name);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string
+                .app_name, R.string.app_name);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -69,23 +73,25 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+        BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id
+                .bottom_navigation_bar);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
-        BadgeItem numberBadgeItem = new BadgeItem()
-                .setBorderWidth(4)
-                .setBackgroundColor(Color.RED)
-                .setText("5")
-                .setHideOnSelect(true);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.task, mContext.getResources().getString(R.string.task)).setActiveColorResource(R.color.button_theme)
-                .setBadgeItem(numberBadgeItem))
-                .addItem(new BottomNavigationItem(R.mipmap.attendance, mContext.getResources().getString(R.string.attendance)).setActiveColorResource(R.color.button_theme))
-                .addItem(new BottomNavigationItem(R.mipmap.mail_list, mContext.getResources().getString(R.string.person)).setActiveColorResource(R.color.button_theme))
-                .addItem(new BottomNavigationItem(R.mipmap.scoreboard, mContext.getResources().getString(R.string.scoreboard)).setActiveColorResource(R.color.button_theme))
-//                .addItem(new BottomNavigationItem(R.mipmap.ic_videogame_asset_white_24dp, "Games").setActiveColorResource(R.color.grey)
+        BadgeItem numberBadgeItem = new BadgeItem().setBorderWidth(4).setBackgroundColor(Color
+                .RED).setText("5").setHideOnSelect(true);
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.task, mContext.getResources
+                ().getString(R.string.task)).setActiveColorResource(R.color.button_theme)
+                .setBadgeItem(numberBadgeItem)).addItem(new BottomNavigationItem(R.mipmap
+                .attendance, mContext.getResources().getString(R.string.attendance))
+                .setActiveColorResource(R.color.button_theme)).addItem(new BottomNavigationItem(R
+                .mipmap.mail_list, mContext.getResources().getString(R.string.person))
+                .setActiveColorResource(R.color.button_theme)).addItem(new BottomNavigationItem(R
+                .mipmap.scoreboard, mContext.getResources().getString(R.string.scoreboard))
+                .setActiveColorResource(R.color.button_theme))
+//                .addItem(new BottomNavigationItem(R.mipmap.ic_videogame_asset_white_24dp,
+// "Games").setActiveColorResource(R.color.grey)
 // .setBadgeItem(numberBadgeItem))
-                .setFirstSelectedPosition(0)
-                .initialise();
+                .setFirstSelectedPosition(0).initialise();
         fragments = getFragments();
         setDefaultFragment();
         bottomNavigationBar.setTabSelectedListener(this);
@@ -199,8 +205,19 @@ public class HomeMainActivity extends AppCompatActivity implements BottomNavigat
         } else if (id == R.id.nav_setting) {
             Intent intent = new Intent(mContext, SettingActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.cancellation) {
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("你确定注销吗?")
+                    .setContentText("你将要注销该账户").setConfirmText("是的，我要注销!")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                @Override
+                public void onClick(SweetAlertDialog sDialog) {
+                    sDialog.dismissWithAnimation();
+                    PreferenceUtils.setPrefString(mContext, "strLoginName", "");
+                    Intent intent = new Intent(mContext, AppLoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

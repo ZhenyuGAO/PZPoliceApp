@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.pvirtech.pzpolice.R;
+import com.pvirtech.pzpolice.main.bottomnavigationbar.HomeMainActivity;
+import com.pvirtech.pzpolice.utils.PreferenceUtils;
 
 import java.io.File;
 
@@ -28,7 +30,12 @@ public class WelcomeActivity extends Activity {
 
     private void toHome() {
         Intent intent = new Intent();
-        intent.setClass(WelcomeActivity.this, AppLoginActivity.class);
+        String strLoginName = PreferenceUtils.getPrefString(mContext, "strLoginName", "");
+        if (!TextUtils.isEmpty(strLoginName)) {
+            intent.setClass(WelcomeActivity.this, HomeMainActivity.class);
+        } else {
+            intent.setClass(WelcomeActivity.this, AppLoginActivity.class);
+        }
         startActivity(intent);
         finish();
     }

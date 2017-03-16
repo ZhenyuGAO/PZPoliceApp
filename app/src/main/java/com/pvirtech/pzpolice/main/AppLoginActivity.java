@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.main.bottomnavigationbar.HomeMainActivity;
+import com.pvirtech.pzpolice.utils.PreferenceUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +31,8 @@ public class AppLoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //全屏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager
+                .LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_app_login);
         ButterKnife.bind(this);
         mContext = this;
@@ -99,6 +101,8 @@ public class AppLoginActivity extends Activity {
     }
 
     private void Login(String userName, String passWord) {
+        String getStrDeviceId = AppValue.getInstance().getStrDeviceId();
+        PreferenceUtils.setPrefString(mContext, "strLoginName", userName);
         layout_progress.setVisibility(View.VISIBLE);
         main_btn_login.setVisibility(View.GONE);
         Intent intent = new Intent(mContext, HomeMainActivity.class);

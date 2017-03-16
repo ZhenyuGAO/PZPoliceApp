@@ -3,6 +3,7 @@ package com.pvirtech.pzpolice.main;
 import android.app.Service;
 import android.content.Context;
 import android.os.Vibrator;
+import android.telephony.TelephonyManager;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.pvirtech.pzpolice.third.baidu.LocationService;
@@ -51,8 +52,15 @@ public class MyApplication extends android.app.Application {
          * 初始化定位sdk，建议在Application中创建
          */
         locationService = new LocationService(getApplicationContext());
-        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+        mVibrator = (Vibrator) getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
         SDKInitializer.initialize(getApplicationContext());
+
+
+        /**
+         * 得到设备唯一ID
+         */
+        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        AppValue.getInstance().setStrDeviceId(tm.getDeviceId());
     }
 
 }

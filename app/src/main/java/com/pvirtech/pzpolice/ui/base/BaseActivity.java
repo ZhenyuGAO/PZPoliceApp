@@ -22,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public CompositeSubscription compositeSubscription = new CompositeSubscription();
     public Context mContext;
     public String TAG;
-
+    LoadingViewProgress loadingViewProgress=new LoadingViewProgress();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }
-        LoadingViewProgress.hideDialogForLoading();//防止内存泄漏
+        loadingViewProgress.hideDialogForLoading();//防止内存泄漏
     }
 
     @Override
@@ -73,20 +73,20 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     public void showLoading(String msg) {
         if (TextUtils.isEmpty(msg)) {
-            LoadingViewProgress.showDialogForLoading(this, "正在加载。。。", false);
+            loadingViewProgress.showDialogForLoading(this, "正在加载。。。", false);
         } else {
-            LoadingViewProgress.showDialogForLoading(this, msg, false);
+            loadingViewProgress.showDialogForLoading(this, msg, false);
         }
     }
 
     @Override
     public void hideLoading() {
-        LoadingViewProgress.hideDialogForLoading();
+        loadingViewProgress.hideDialogForLoading();
     }
 
     @Override
     public void showError(String msg) {
-        LoadingViewProgress.hideDialogForLoading();
+        loadingViewProgress.hideDialogForLoading();
     }
 
     @Override
