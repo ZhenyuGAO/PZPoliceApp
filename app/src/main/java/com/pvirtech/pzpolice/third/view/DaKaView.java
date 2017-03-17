@@ -28,13 +28,17 @@ public class DaKaView extends View {
     int mOutWidth;// 外圆宽度(w/4/5*2=w/10)
     int mCx, mCy;// x、y轴中心点
     int mOutsideRadius, mInsideRadius;// 外、内圆半径
+    private int intStrokeWidth = 3;
 
     public DaKaView(Context context) {
         super(context);
     }
 
-    private void init(Context context) {
+    public void init(Context context) {
         mPaint = new Paint();
+        mPaint.setColor(context.getResources().getColor(R.color.daka_around));
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(intStrokeWidth);
         this.mContext = context;
     }
 
@@ -47,9 +51,8 @@ public class DaKaView extends View {
             final int minimumHeight = getSuggestedMinimumHeight();
             mWidth = resolveMeasured(widthMeasureSpec, minimumWidth);
             mHeight = resolveMeasured(heightMeasureSpec, minimumHeight);
-            mScanBmp = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(mContext
-                    .getResources(), R.mipmap.radar_scan_img), mWidth - mOutWidth, mWidth -
-                    mOutWidth, false);
+            mScanBmp = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.radar_scan_img), mWidth -
+                    mOutWidth, mWidth - mOutWidth, false);
 
             // 获取x/y轴中心点
             mCx = mWidth / 2;
@@ -78,13 +81,12 @@ public class DaKaView extends View {
 
         if (isSearching) {// 判断是否处于扫描
             canvas.rotate(mOffsetArgs, mCx, mCy);// 绘制旋转角度,参数一：角度;参数二：x中心;参数三：y中心.
-            canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight()
-                    / 2, null);// 绘制Bitmap扫描图片效果
+            canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight() / 2, null);// 绘制Bitmap扫描图片效果
             mOffsetArgs += 3;
         } else {
-            canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight()
-                    / 2, null);
+            canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight() / 2, null);
         }
+//        canvas.drawCircle(mCx, mCx, (mWidth - mOutWidth)/2-intStrokeWidth, mPaint);
         if (isSearching) this.invalidate();
 
     }

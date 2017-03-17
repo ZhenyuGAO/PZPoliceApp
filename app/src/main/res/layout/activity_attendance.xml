@@ -5,7 +5,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screen_background"
+    android:background="@color/content_background"
     android:orientation="vertical"
     tools:context="com.pvirtech.pzpolice.ui.activity.AttendanceActivity">
 
@@ -14,24 +14,97 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></include>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_interval"
+        android:layout_marginRight="@dimen/small_interval"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/small_interval"
+        android:paddingTop="@dimen/small_interval">
 
-        <com.pvirtech.pzpolice.third.view.DaKaView
-            android:id="@+id/daka_view"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+        <ImageView
+            android:layout_width="@dimen/small_button"
+            android:layout_height="@dimen/small_button"
+            android:src="@mipmap/head_portrait"/>
 
         <TextView
-            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/small_interval"
+            android:layout_weight="1"
+            android:text="name"/>
+
+        <LinearLayout
+            android:id="@+id/lin_chose_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="time"/>
-    </RelativeLayout>
 
+            android:background="@drawable/theme_button_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_interval"
+                android:gravity="right"
+                android:text="name"
+                android:textColor="@android:color/white"/>
+
+            <ImageView
+                android:layout_width="@dimen/micro_button"
+                android:layout_height="@dimen/micro_button"
+                android:layout_marginLeft="@dimen/micro_interval"
+                android:src="@mipmap/down_white"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/item_line"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班打卡"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:id="@+id/up_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08:55:30"
+                    android:textColor="@android:color/white"/>
+
+            </FrameLayout>
+
+            <com.pvirtech.pzpolice.third.view.DaKaView
+                android:id="@+id/daka_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

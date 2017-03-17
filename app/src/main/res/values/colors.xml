@@ -23,4 +23,9 @@
     <!--分割线-->
     <color name="item_line">#999999</color>
 
+
+    <!--打卡View-->
+    <color name="daka_around">#c8d8e4</color>
+    <color name="daka_around_2">#96bedb</color>
+
 </resources>
