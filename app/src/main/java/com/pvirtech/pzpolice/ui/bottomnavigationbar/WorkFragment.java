@@ -1,4 +1,4 @@
-package com.pvirtech.pzpolice.main.bottomnavigationbar;
+package com.pvirtech.pzpolice.ui.bottomnavigationbar;
 
 import android.content.Context;
 import android.content.Intent;

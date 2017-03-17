@@ -64,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.bottomnavigationbar.HomeMainActivity"
+            android:name=".ui.bottomnavigationbar.HomeMainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/DrawerTheme"/>
@@ -73,7 +73,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".main.one.CaseQueryActivity"
+            android:name=".test.one.CaseQueryActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity

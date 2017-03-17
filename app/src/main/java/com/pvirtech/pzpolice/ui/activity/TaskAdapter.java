@@ -3,7 +3,7 @@ package com.pvirtech.pzpolice.ui.activity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.pvirtech.pzpolice.R;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 
 import java.util.ArrayList;
 import java.util.List;

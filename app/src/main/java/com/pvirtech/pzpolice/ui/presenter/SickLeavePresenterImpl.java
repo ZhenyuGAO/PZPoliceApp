@@ -3,7 +3,7 @@ package com.pvirtech.pzpolice.ui.presenter;
 import com.pvirtech.pzpolice.http.HttpResult;
 import com.pvirtech.pzpolice.http.RetrofitHttp;
 import com.pvirtech.pzpolice.main.OperationUtils;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 import com.pvirtech.pzpolice.ui.activity.SickLeaveActivity;
 import com.pvirtech.pzpolice.ui.contract.SickLeaveContract;
 import com.pvirtech.pzpolice.ui.model.SickLeaveModelImpl;

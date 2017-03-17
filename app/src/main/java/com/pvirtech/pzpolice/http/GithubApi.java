@@ -1,7 +1,7 @@
 package com.pvirtech.pzpolice.http;
 
 
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 
 import java.io.InputStream;
 import java.util.List;

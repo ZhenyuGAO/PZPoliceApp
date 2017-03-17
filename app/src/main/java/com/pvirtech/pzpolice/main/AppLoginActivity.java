@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.pvirtech.pzpolice.R;
-import com.pvirtech.pzpolice.main.bottomnavigationbar.HomeMainActivity;
+import com.pvirtech.pzpolice.ui.bottomnavigationbar.HomeMainActivity;
 import com.pvirtech.pzpolice.utils.PreferenceUtils;
 
 import butterknife.BindView;

@@ -4,7 +4,7 @@ package com.pvirtech.pzpolice.ui.presenter;
 import com.google.gson.Gson;
 import com.pvirtech.pzpolice.http.HttpResult;
 import com.pvirtech.pzpolice.http.RetrofitHttp;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 import com.pvirtech.pzpolice.ui.contract.WorkOneContract;
 import com.pvirtech.pzpolice.ui.model.WorkOneModelImpl;
 import com.pvirtech.pzpolice.utils.L;

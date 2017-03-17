@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.pvirtech.pzpolice.R;
-import com.pvirtech.pzpolice.main.bottomnavigationbar.HomeMainActivity;
+import com.pvirtech.pzpolice.ui.bottomnavigationbar.HomeMainActivity;
 import com.pvirtech.pzpolice.utils.PreferenceUtils;
 
 import java.io.File;

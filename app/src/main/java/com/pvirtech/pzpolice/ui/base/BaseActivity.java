@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.pvirtech.pzpolice.R;
@@ -22,7 +23,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public CompositeSubscription compositeSubscription = new CompositeSubscription();
     public Context mContext;
     public String TAG;
-    LoadingViewProgress loadingViewProgress=new LoadingViewProgress();
+    LoadingViewProgress loadingViewProgress = new LoadingViewProgress();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,4 +100,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public void showNetError() {
 
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            loadingViewProgress.hideDialogForLoading();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

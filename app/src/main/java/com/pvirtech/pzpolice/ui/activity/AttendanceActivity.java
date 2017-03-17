@@ -1,10 +1,12 @@
 package com.pvirtech.pzpolice.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.third.view.DaKaView;
 import com.pvirtech.pzpolice.ui.base.BaseActivity;
+import com.pvirtech.pzpolice.ui.base.BaseDialog;
 import com.pvirtech.pzpolice.ui.contract.AttendanceContract;
 import com.pvirtech.pzpolice.ui.presenter.AttendancePresenterImpl;
 
@@ -29,6 +31,26 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
 
         DaKaView daKaView = (DaKaView) findViewById(R.id.daka_view);
         daKaView.setSearching(true);
+        daKaView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BaseDialog baseDialog = new BaseDialog(mContext, R.style.loading_dialog_style);
+                baseDialog.setPositiviOnclickListener(new BaseDialog.OnBaseDialogClickListener() {
+                    @Override
+                    public void onClick(BaseDialog baseDialog) {
+                        System.out.println("aaaaa");
+                    }
+                });
+                baseDialog.setNegativeOnclickListener(new BaseDialog.OnBaseDialogClickListener() {
+                    @Override
+                    public void onClick(BaseDialog baseDialog) {
+                        System.out.println("aaaaa");
+                    }
+                });
+
+                baseDialog.show();
+            }
+        });
     }
 
     @Override

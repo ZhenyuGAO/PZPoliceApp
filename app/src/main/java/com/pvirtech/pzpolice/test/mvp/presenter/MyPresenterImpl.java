@@ -3,7 +3,7 @@ package com.pvirtech.pzpolice.test.mvp.presenter;
 
 import com.pvirtech.pzpolice.http.HttpResult;
 import com.pvirtech.pzpolice.http.RetrofitHttp;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 import com.pvirtech.pzpolice.test.mvp.contract.MyContract;
 import com.pvirtech.pzpolice.test.mvp.model.MyModelImpl;
 import com.pvirtech.pzpolice.utils.L;

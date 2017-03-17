@@ -1,4 +1,4 @@
-package com.pvirtech.pzpolice.main.one;
+package com.pvirtech.pzpolice.test.one;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;

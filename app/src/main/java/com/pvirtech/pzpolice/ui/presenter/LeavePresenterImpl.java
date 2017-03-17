@@ -15,7 +15,7 @@ import com.pvirtech.pzpolice.http.HttpResult;
 import com.pvirtech.pzpolice.http.RetrofitHttp;
 import com.pvirtech.pzpolice.main.Constant;
 import com.pvirtech.pzpolice.main.OperationUtils;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 import com.pvirtech.pzpolice.ui.appInterfaces.OnSelectedListener;
 import com.pvirtech.pzpolice.ui.contract.LeaveContract;
 import com.pvirtech.pzpolice.ui.model.LeaveModelImpl;

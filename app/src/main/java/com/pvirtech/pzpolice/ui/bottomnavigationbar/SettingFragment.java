@@ -1,4 +1,4 @@
-package com.pvirtech.pzpolice.main.bottomnavigationbar;
+package com.pvirtech.pzpolice.ui.bottomnavigationbar;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,7 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.kyleduo.switchbutton.SwitchButton;
 import com.pvirtech.pzpolice.ui.activity.MonthlyCalendarActivity;
 import com.pvirtech.pzpolice.R;
-import com.pvirtech.pzpolice.main.one.CaseQueryActivity;
+import com.pvirtech.pzpolice.test.one.CaseQueryActivity;
 import com.pvirtech.pzpolice.test.view.CollapsingToolbarLayoutActivity;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 import com.pvirtech.pzpolice.utils.PreferenceUtils;

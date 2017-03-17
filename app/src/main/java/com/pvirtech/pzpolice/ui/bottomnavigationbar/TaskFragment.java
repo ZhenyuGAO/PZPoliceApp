@@ -1,4 +1,4 @@
-package com.pvirtech.pzpolice.main.bottomnavigationbar;
+package com.pvirtech.pzpolice.ui.bottomnavigationbar;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.http.HttpResult;
 import com.pvirtech.pzpolice.http.RetrofitHttp;
-import com.pvirtech.pzpolice.main.one.CaseQueryEntity;
+import com.pvirtech.pzpolice.test.one.CaseQueryEntity;
 import com.pvirtech.pzpolice.ui.activity.TaskAdapter;
 import com.pvirtech.pzpolice.ui.base.BaseFragment;
 import com.pvirtech.pzpolice.utils.L;
