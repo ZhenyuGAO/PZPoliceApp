@@ -1,6 +1,6 @@
 package com.pvirtech.pzpolice.ui.base;
 
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,9 +17,9 @@ import com.pvirtech.pzpolice.R;
 /**
  * Created by qfxl on 2016/3/24.
  */
-public class BaseDialog extends Dialog {
+public class BaseDialog extends  AlertDialog {
     private Context mContext;
-    private View contentView;
+    private View myContentView;
     private String title;
     private OnBaseDialogClickListener positiviOnclickListener;
     private OnBaseDialogClickListener negativeOnclickListener;
@@ -57,6 +57,7 @@ public class BaseDialog extends Dialog {
      * 初始化界面控件
      */
     private void initView() {
+
         if (!TextUtils.isEmpty(title)) {
             TextView titleView = (TextView) findViewById(R.id.title_text);
             titleView.setText(title);
@@ -84,10 +85,11 @@ public class BaseDialog extends Dialog {
             });
         }
 
-        if (contentView != null) {//如果内容区域要显示其他的View的话
+        if (myContentView != null) {//如果内容区域要显示其他的View的话
             LinearLayout mContentLayout = (LinearLayout) findViewById(R.id.content);
             mContentLayout.removeAllViews();
-            mContentLayout.addView(contentView);
+            mContentLayout.addView(myContentView);
+
         }
 
 
@@ -99,6 +101,9 @@ public class BaseDialog extends Dialog {
     private void initEvent() {
     }
 
+    public void setMyContentView(View myContentView) {
+        this.myContentView = myContentView;
+    }
 
     public void setPositiviOnclickListener(OnBaseDialogClickListener onBaseDialogClickListener) {
         positiviOnclickListener = onBaseDialogClickListener;

@@ -2,6 +2,7 @@ package com.pvirtech.pzpolice.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.third.view.DaKaView;
@@ -31,6 +32,14 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
 
         DaKaView daKaView = (DaKaView) findViewById(R.id.daka_view);
         daKaView.setSearching(true);
+        final ImageView view = new ImageView(mContext);
+        view.setImageResource(R.mipmap.ic_launcher);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("aaaaa");
+            }
+        });
         daKaView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +53,9 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
                 baseDialog.setNegativeOnclickListener(new BaseDialog.OnBaseDialogClickListener() {
                     @Override
                     public void onClick(BaseDialog baseDialog) {
-                        System.out.println("aaaaa");
                     }
                 });
-
+                baseDialog.setMyContentView(view);
                 baseDialog.show();
             }
         });

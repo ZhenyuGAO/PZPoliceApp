@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.pvirtech.pzpolice.R;
@@ -67,9 +69,16 @@ public class DateAndTimePickerDialog {
                 System.out.println("=======" + timePickerString);
             }
         });
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle(title);
-        builder.setIcon(R.mipmap.calendar);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);  //先得到构造器
+        View mTitleView = LayoutInflater.from(mContext).inflate(R.layout.dialog_title, null);
+        TextView tvTitle = (TextView) mTitleView.findViewById(R.id.tv_title);
+        tvTitle.setText(title);
+        ImageView iv_Title = (ImageView) mTitleView.findViewById(R.id.iv_title);
+        iv_Title.setImageResource(R.mipmap.type_white);
+        builder.setCustomTitle(mTitleView);
+
+
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
