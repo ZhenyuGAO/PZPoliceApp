@@ -22,6 +22,7 @@ public class DaKaView extends View {
     private boolean isSearching = false;// 标识是否处于扫描状态,默认为不在扫描状态
     private Paint mPaint;// 画笔
     private Bitmap mScanBmp;// 执行扫描运动的图片
+    private Bitmap mScanBmp2;// 执行扫描运动的图片
     private int mOffsetArgs = 0;// 扫描运动偏移量参数
     private List<String> mPointArray = new ArrayList<String>();// 存放偏移量的map
     private int mWidth, mHeight;// 宽高
@@ -53,6 +54,9 @@ public class DaKaView extends View {
             mHeight = resolveMeasured(heightMeasureSpec, minimumHeight);
             mScanBmp = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.radar_scan_img), mWidth -
                     mOutWidth, mWidth - mOutWidth, false);
+            mScanBmp2 = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.daka), mWidth - mOutWidth, mWidth
+                    - mOutWidth, false);
+
 
             // 获取x/y轴中心点
             mCx = mWidth / 2;
@@ -84,7 +88,7 @@ public class DaKaView extends View {
             canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight() / 2, null);// 绘制Bitmap扫描图片效果
             mOffsetArgs += 3;
         } else {
-            canvas.drawBitmap(mScanBmp, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight() / 2, null);
+            canvas.drawBitmap(mScanBmp2, mCx - mScanBmp.getWidth() / 2, mCy - mScanBmp.getHeight() / 2, null);
         }
 //        canvas.drawCircle(mCx, mCx, (mWidth - mOutWidth)/2-intStrokeWidth, mPaint);
         if (isSearching) this.invalidate();

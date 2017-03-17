@@ -1,6 +1,7 @@
 package com.pvirtech.pzpolice.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.pvirtech.pzpolice.R;
 import com.pvirtech.pzpolice.third.view.DaKaView;
@@ -27,9 +28,15 @@ public class AttendanceActivity extends BaseActivity implements AttendanceContra
         presenter = new AttendancePresenterImpl(AttendanceActivity.this, compositeSubscription);
 
 
-        DaKaView daKaView = (DaKaView) findViewById(R.id.daka_view);
+        final DaKaView daKaView = (DaKaView) findViewById(R.id.daka_view);
         daKaView.init(mContext);
-        daKaView.setSearching(true);
+        daKaView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                daKaView.setSearching(true);
+            }
+        });
+
 
     }
 
